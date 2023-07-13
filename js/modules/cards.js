@@ -1,3 +1,5 @@
+import { getRecourse } from "../services/services";
+
 function cards() {
   // using classes foe creating menu cards
 
@@ -42,8 +44,8 @@ function cards() {
     }
   }
 
-  axios.get("http://localhost:3000/menu").then((data) => {
-    data.data.forEach(({ img, altimg, title, descr, price }) => {
+  getRecourse("http://localhost:3000/menu").then((data) => {
+    data.forEach(({ img, altimg, title, descr, price }) => {
       new MenuCard(
         img,
         altimg,
@@ -56,4 +58,4 @@ function cards() {
   });
 }
 
-module.exports = cards;
+export default cards;
